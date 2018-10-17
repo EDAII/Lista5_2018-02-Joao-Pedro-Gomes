@@ -1,0 +1,34 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.unb.eda2.jp"
+    },
+    "jhipsterVersion": "5.4.2",
+    "applicationType": "monolith",
+    "baseName": "eda2",
+    "packageName": "br.com.unb.eda2.jp",
+    "packageFolder": "br/com/unb/eda2/jp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZjA0MTQ5MTE4ZDBiODk2ZTA1MjliMzQ1MzU3ZGM0YjJlMTVkM2Q4MDU1ZGY1NGZjZTg0YmE3ODA2OTE3YTQ2M2EzYWMwZmIzOWE4Y2VmYTVlMDYxYmJjODU4YjRjNTQ0ZjAzNzBlZWI1MmFiN2Q5OGM5NzcwMWEwZTZjODg0NTQ=",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false,
+    "enableHibernateCache": false
+  }
+}

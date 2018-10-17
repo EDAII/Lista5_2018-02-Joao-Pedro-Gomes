@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span>Tarefas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tarefa" [routerLink]="['/tarefa/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Tarefa
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="tarefas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Horario Inicio</span></th>
+            <th><span>Horario Final</span></th>
+            <th><span>Nome</span></th>
+            <th><span>Tem</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tarefa of tarefas ;trackBy: trackId">
+                <td><a [routerLink]="['/tarefa', tarefa.id, 'view' ]">{{tarefa.id}}</a></td>
+                <td>{{tarefa.horarioInicio}}</td>
+                <td>{{tarefa.horarioFinal}}</td>
+                <td>{{tarefa.nome}}</td>
+                <td>{{tarefa.tem?.login}}</td>
+
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/tarefa', tarefa.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tarefa', tarefa.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tarefa/'+ tarefa.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="container center">
+        <h2>Verifique quantas tarefas você é capaz de fazer!!</h2>
+        <button type="submit"
+                (click)="interval_scheduling()"
+                replaceUrl="true"
+                queryParamsHandling="merge"
+                class="center btn btn-primary btn-sm">
+         <fa-icon [icon]="'eye'"></fa-icon>
+            <span class="d-none d-md-inline">Verificar agora</span>
+        </button>
+        </div>
+    </div>
+
+</div>

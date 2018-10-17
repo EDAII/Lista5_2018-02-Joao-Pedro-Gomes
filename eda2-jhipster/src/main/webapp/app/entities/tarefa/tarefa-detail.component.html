@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tarefa">
+            <h2><span>Tarefa</span> {{tarefa.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Horario Inicio</span></dt>
+                <dd>
+                    <span>{{tarefa.horarioInicio}}</span>
+                </dd>
+                <dt><span>Horario Final</span></dt>
+                <dd>
+                    <span>{{tarefa.horarioFinal}}</span>
+                </dd>
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{tarefa.nome}}</span>
+                </dd>
+                <dt><span>Tem</span></dt>
+                <dd>
+                    {{tarefa.tem?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tarefa', tarefa.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

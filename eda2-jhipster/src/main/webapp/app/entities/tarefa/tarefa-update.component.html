@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-tarefa-heading">Create or edit a Tarefa</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!tarefa.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="tarefa.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_horarioInicio">Horario Inicio</label>
+                    <input type="number" class="form-control" name="horarioInicio" id="field_horarioInicio"
+                        [(ngModel)]="tarefa.horarioInicio" required min="0" jhiMin="0" max="23" jhiMax="23"/>
+                    <div [hidden]="!(editForm.controls.horarioInicio?.dirty && editForm.controls.horarioInicio?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horarioInicio?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.horarioInicio?.errors?.min">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.horarioInicio?.errors?.max">
+                            This field cannot be more than 23.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.horarioInicio?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_horarioFinal">Horario Final</label>
+                    <input type="number" class="form-control" name="horarioFinal" id="field_horarioFinal"
+                        [(ngModel)]="tarefa.horarioFinal" required min="0" jhiMin="0" max="23" jhiMax="23"/>
+                    <div [hidden]="!(editForm.controls.horarioFinal?.dirty && editForm.controls.horarioFinal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.horarioFinal?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.horarioFinal?.errors?.min">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.horarioFinal?.errors?.max">
+                            This field cannot be more than 23.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.horarioFinal?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="tarefa.nome" required/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tem">Tem</label>
+                    <select class="form-control" id="field_tem" name="tem" [(ngModel)]="tarefa.tem" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === tarefa.tem?.id ? tarefa.tem : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

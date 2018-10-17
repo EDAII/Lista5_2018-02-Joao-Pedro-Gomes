@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "valor",
+            "fieldType": "Float"
+        }
+    ],
+    "changelogDate": "20181019021906",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "troco",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
